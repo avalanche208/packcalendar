@@ -87,4 +87,4 @@ ICAL.js is distributed unmodified under Mozilla Public License 2.0; see `site/IC
 - Focused checks passed for recurring exclusions, moved occurrences, and cancelled occurrences.
 - JavaScript syntax and package contents checked.
 
-Docker/nginx execution and browser/device visual QA could not be completed in this workspace. Verify the container and mobile/desktop display after installation. This package is ready to install, but is not yet publicly deployed.
+GitHub Actions successfully built and ran the container, validated nginx, tested the live rehosted feed and its cache, and published version 2026.9.30-1e and latest to Docker Hub for amd64 and arm64. Browser/device visual QA still requires verification after installation. The website becomes publicly available when you configure your reverse proxy to the unRAID container.
