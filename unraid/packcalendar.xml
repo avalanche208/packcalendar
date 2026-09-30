@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>packcalendar</Name>
+  <Repository>avalanche208/packcalendar:latest</Repository>
+  <Registry>https://hub.docker.com/r/avalanche208/packcalendar</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/avalanche208/packcalendar/issues</Support>
+  <Project>https://github.com/avalanche208/packcalendar</Project>
+  <Overview>Public Cub Scout Pack 77 calendar with a custom responsive display and a live rehosted iCalendar subscription feed. No Google account is needed. Publish through an external HTTPS reverse proxy. No volume mappings required.</Overview>
+  <Category>HomeAutomation: Other:</Category>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/avalanche208/packcalendar/main/site/favicon.svg</Icon>
+  <ExtraParams></ExtraParams>
+  <Config Name="Web Port" Target="80" Default="8080" Mode="tcp" Description="HTTP port. Point your external HTTPS reverse proxy here." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+</Container>

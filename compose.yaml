@@ -1,0 +1,7 @@
+services:
+  packcalendar:
+    image: avalanche208/packcalendar:latest
+    container_name: packcalendar
+    ports:
+      - "8080:80"
+    restart: unless-stopped
