@@ -1,6 +1,6 @@
 # Pack 77 Public Calendar
 
-Version 2026.9.30-1c. Custom responsive month/schedule calendar plus a rehosted, live iCalendar subscription feed. No Google embed, Google account, API key, database, or application server. A single nginx container serves the site and proxies the public Google Calendar feed.
+Version 2026.9.30-1d. Custom responsive month/schedule calendar plus a rehosted, live iCalendar subscription feed. No Google embed, Google account, API key, database, or application server. A single nginx container serves the site and proxies the public Google Calendar feed.
 
 Source: s3ijfped1qod4lkan99kmsneic@group.calendar.google.com
 
@@ -31,7 +31,7 @@ Repository Actions secrets must be `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`, o
 2. In Docker → Add Container, set:
    - Name: `pack77-calendar`
    - Repository: `nginx:stable-alpine`
-   - Network: Bridge (Docker DNS at 127.0.0.11 is used to resolve Google)
+   - Network: a custom Docker bridge network (the alternative official image configuration uses Docker DNS at 127.0.0.11)
    - Port: host `8080` → container `80`, TCP. Choose another host port if occupied.
    - Path: `/mnt/user/appdata/pack77-calendar/site` → `/usr/share/nginx/html`, Read Only.
    - Path: `/mnt/user/appdata/pack77-calendar/nginx.conf` → `/etc/nginx/conf.d/default.conf`, Read Only. This configuration is REQUIRED for the live feed.
@@ -48,11 +48,11 @@ The official nginx method does not require a custom Docker Hub image. Do not exp
 From this folder on a machine with Docker:
 
 ```sh
-docker build -t pack77-calendar:2026.9.30-1c .
-docker run -d --name pack77-calendar --restart unless-stopped -p 8080:80 pack77-calendar:2026.9.30-1c
+docker build -t pack77-calendar:2026.9.30-1d .
+docker run -d --name pack77-calendar --restart unless-stopped -p 8080:80 pack77-calendar:2026.9.30-1d
 ```
 
-The included Compose file pulls the published image: `docker compose up -d`. The image includes the site and nginx configuration. No bind mounts are required. Both installation methods require outbound HTTPS and DNS to Google.
+The included Compose file pulls the published image: `docker compose up -d`. The image includes the site and nginx configuration. No bind mounts are required. Both installation methods require outbound HTTPS and DNS to Google. The published image automatically uses the container’s configured DNS server, supporting both default and custom bridge networks.
 
 ## Subscriptions without a Google account
 
