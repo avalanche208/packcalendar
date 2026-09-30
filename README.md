@@ -1,6 +1,6 @@
 # Pack 77 Public Calendar
 
-Version 2026.9.30-1d. Custom responsive month/schedule calendar plus a rehosted, live iCalendar subscription feed. No Google embed, Google account, API key, database, or application server. A single nginx container serves the site and proxies the public Google Calendar feed.
+Version 2026.9.30-1e. Custom responsive month/schedule calendar plus a rehosted, live iCalendar subscription feed. No Google embed, Google account, API key, database, or application server. A single nginx container serves the site and proxies the public Google Calendar feed.
 
 Source: s3ijfped1qod4lkan99kmsneic@group.calendar.google.com
 
@@ -48,8 +48,8 @@ The official nginx method does not require a custom Docker Hub image. Do not exp
 From this folder on a machine with Docker:
 
 ```sh
-docker build -t pack77-calendar:2026.9.30-1d .
-docker run -d --name pack77-calendar --restart unless-stopped -p 8080:80 pack77-calendar:2026.9.30-1d
+docker build -t pack77-calendar:2026.9.30-1e .
+docker run -d --name pack77-calendar --restart unless-stopped -p 8080:80 pack77-calendar:2026.9.30-1e
 ```
 
 The included Compose file pulls the published image: `docker compose up -d`. The image includes the site and nginx configuration. No bind mounts are required. Both installation methods require outbound HTTPS and DNS to Google. The published image automatically uses the container’s configured DNS server, supporting both default and custom bridge networks.
