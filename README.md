@@ -1,6 +1,6 @@
 # Pack 77 Public Calendar
 
-Version 2026.9.30-1e. Custom responsive month/schedule calendar plus a rehosted, live iCalendar subscription feed. No Google embed, Google account, API key, database, or application server. A single nginx container serves the site and proxies the public Google Calendar feed.
+Version 2026.9.30-1f. Custom responsive month/schedule calendar plus a rehosted, live iCalendar subscription feed. No Google embed, Google account, API key, database, or application server. A single nginx container serves the site and proxies the public Google Calendar feed.
 
 Source: s3ijfped1qod4lkan99kmsneic@group.calendar.google.com
 
@@ -48,8 +48,8 @@ The official nginx method does not require a custom Docker Hub image. Do not exp
 From this folder on a machine with Docker:
 
 ```sh
-docker build -t pack77-calendar:2026.9.30-1e .
-docker run -d --name pack77-calendar --restart unless-stopped -p 8080:80 pack77-calendar:2026.9.30-1e
+docker build -t pack77-calendar:2026.9.30-1f .
+docker run -d --name pack77-calendar --restart unless-stopped -p 8080:80 pack77-calendar:2026.9.30-1f
 ```
 
 The included Compose file pulls the published image: `docker compose up -d`. The image includes the site and nginx configuration. No bind mounts are required. Both installation methods require outbound HTTPS and DNS to Google. The published image automatically uses the container’s configured DNS server, supporting both default and custom bridge networks.
@@ -87,4 +87,4 @@ ICAL.js is distributed unmodified under Mozilla Public License 2.0; see `site/IC
 - Focused checks passed for recurring exclusions, moved occurrences, and cancelled occurrences.
 - JavaScript syntax and package contents checked.
 
-GitHub Actions successfully built and ran the container, validated nginx, tested the live rehosted feed and its cache, and published version 2026.9.30-1e and latest to Docker Hub for amd64 and arm64. Browser/device visual QA still requires verification after installation. The website becomes publicly available when you configure your reverse proxy to the unRAID container.
+GitHub Actions successfully built and ran the container, validated nginx, tested the live rehosted feed and its cache, and published version 2026.9.30-1f and latest to Docker Hub for amd64 and arm64. Browser/device visual QA still requires verification after installation. The website becomes publicly available when you configure your reverse proxy to the unRAID container.

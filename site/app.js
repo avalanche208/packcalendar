@@ -1,9 +1,11 @@
 import {parseFeed,expandFeed} from './events.js';
+import {appleSubscriptionURL} from './subscriptions.js';
 const $=id=>document.getElementById(id);
 const zone=Intl.DateTimeFormat().resolvedOptions().timeZone||'America/Chicago';
 const feedURL=new URL('calendar.ics',location.href);feedURL.search='';feedURL.hash='';
 $('feed').value=feedURL.href;
-const apple=new URL(feedURL);apple.protocol='webcal:';$('apple').href=apple.href;
+$('apple').href=appleSubscriptionURL(feedURL);
+$('apple').addEventListener('click',()=>{$('apple-help').open=true;});
 $('timezone').textContent=`Times shown in ${zone.replaceAll('_',' ')}`;
 let feed=null,month=new Date(),mode=matchMedia('(max-width:700px)').matches?'AGENDA':'MONTH',busy=false;
 month=new Date(month.getFullYear(),month.getMonth(),1);

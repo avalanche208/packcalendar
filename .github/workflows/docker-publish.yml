@@ -22,7 +22,7 @@ jobs:
         run: |
           node --check site/app.js
           node --check site/events.js
-          node --test test/events.test.js
+          node --test test/*.test.js
       - name: Build and validate nginx
         run: |
           docker build -t packcalendar:test .
