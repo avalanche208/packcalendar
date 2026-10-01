@@ -1,5 +1,5 @@
-import {parseFeed,expandFeed} from './events.js';
-import {appleSubscriptionURL} from './subscriptions.js';
+import {parseFeed,expandFeed} from './events.js?v=2026.9.30-1g';
+import {appleSubscriptionURL} from './subscriptions.js?v=2026.9.30-1g';
 const $=id=>document.getElementById(id);
 const zone=Intl.DateTimeFormat().resolvedOptions().timeZone||'America/Chicago';
 const feedURL=new URL('calendar.ics',location.href);feedURL.search='';feedURL.hash='';
